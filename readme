@@ -1,0 +1,9 @@
+#  because of 
+The experiments are con-
+ducted using multiple codebook sizes with n-fold validation
+in a “Leave-One-Group-Out“ scenario. A group of 5 videos
+from every class is left out for testing, while the classifier
+is trained on the remaining videos.
+
+we use 5-fold ,because lack of data ,each class random choose 20 video .
+ok .begin
