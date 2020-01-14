@@ -1,5 +1,3 @@
-/extract_feature/result_1
-/extract_feature/pretrain_result_2
 /extract_feature/RGB_for_extract_feature
 /model_1/Lq_loss_iter_5000.caffemodel
 /model_1/Lq_loss_iter_5000.solverstate
