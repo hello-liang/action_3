@@ -76,6 +76,20 @@ pip2 uninstall protobuf
 pip2 install protobuf==2.6.1
 
 
+create new image
+
+docker commit -m="caffe_cpu" -a="helloliang" 739b306f8be4 helloliang/unsupervisor:cpu
+
+
+or 
+
+sudo docker commit caffe_net  helloliang/unsupervisor_jupyter:gpu
+
+jupyter-notebook --no-browser --ip 0.0.0.0 --port=7000 --allow-root
+
+
+docker run  -it --name caffe_cpu -v /media/liang/ssd2:/opt/data --net host helloliang/unsupervisor:cpu /bin/bash
+
 
 
 
@@ -108,16 +122,23 @@ sudo apt install docker-ce
 1.docker pull hulkinbrain/docker-opencv2
 
 
-sudo docker run  -it --name split1 -v /home/arl/liang/UCF:/opt/data --net host hulkinbrain/docker-opencv2:latest  /bin/bash
 
-sudo docker run  -it --name split2 -v /home/arl/liang/UCF:/opt/data --net host hulkinbrain/docker-opencv2:latest  /bin/bash
-sudo docker run  -it --name split3 -v /home/arl/liang/UCF:/opt/data --net host hulkinbrain/docker-opencv2:latest  /bin/bash
-sudo docker run  -it --name split4 -v /home/arl/liang/UCF:/opt/data --net host hulkinbrain/docker-opencv2:latest  /bin/bash
-sudo docker run  -it --name split5 -v /home/arl/liang/UCF:/opt/data --net host hulkinbrain/docker-opencv2:latest  /bin/bash
 2. docker pull helloliang/unsupervisor:gpu
 
 
-sudo docker run --gpus device=1  -it --name caffe -v /home/arl/liang/UCF:/opt/data --net host helloliang/unsupervisor:gpu /bin/bash
+
+
+
+docker push and pull 
+
+docker images
+docker
+sudo docker tag helloliang/unsupervisor_jupyter:gpu   helloliang/unsupervisor:gpu_jupyter
+
+sudo docker login -u "helloliang" -p "137b33o5"
+
+docker push helloliang/unsupervisor:gpu_jupyter
+
 
 
 

@@ -1,0 +1,12 @@
+ArmFlapping/v_ArmFlapping_02	0
+HeadBanging/v_HeadBanging_20	1
+Spinning/v_Spinning_09	2
+ArmFlapping/v_ArmFlapping_13	0
+HeadBanging/v_HeadBanging_01	1
+Spinning/v_Spinning_16	2
+ArmFlapping/v_ArmFlapping_04	0
+HeadBanging/v_HeadBanging_15	1
+Spinning/v_Spinning_22	2
+ArmFlapping/v_ArmFlapping_15	0
+HeadBanging/v_HeadBanging_14	1
+Spinning/v_Spinning_04	2
