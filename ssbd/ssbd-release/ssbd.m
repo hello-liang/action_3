@@ -41,7 +41,7 @@ clear all ; close all ; clc ;
         % the web and copies it to local folders. The total size of the stip files
         % is approximately 4.58GB and hence the download might take time. Do not
         % proceed to next steps, until this step is successfully completed as this is
-        % the dataset used by subsequent portion of the code.
+        the dataset used by subsequent portion of the code.
         if (SETUP)
             %% Add VLFeat library paths and run the vl_setup program
             %addpath('<Path To VLFeat Install Folder>/vlfeat-0.9.17/') ;
@@ -144,7 +144,7 @@ clear all ; close all ; clc ;
 
         % Example test set. 5 videos (stip files) are used for test and the
         % remaining for training. 
-        test(1,:) = [1,2,3,4,5,26,27,28,29,30,51,52,53,54,55] ;
+        test(1,:) = [1,2,3,4,26,27,28,29,51,52,53,54] ;
         test(2,:) = test(1,:) + 5 ;
         test(3,:) = test(1,:) + 10 ;
         test(4,:) = test(1,:) + 15 ;
