@@ -43,7 +43,7 @@ swarm_best = zeros(centroids,dimensions);   %% the best centroids at this iterat
 c = zeros(dataset_size(1),particles);%!!!!!!save class�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?
 ranges = max(meas)-min(meas); %%scale
 swarm_pos = swarm_pos .* repmat(ranges,centroids,1,particles) + repmat(min(meas),centroids,1,particles);
-swarm_fitness(1:particles)=Inf;
+swarm_fitness(1:particles)=0;
 
 % KMEANS_INIT
 if hybrid_pso
@@ -95,16 +95,14 @@ for iteration=1:iterations
     for particle=1:particles
         
         y = double(categorical(species));
-        c_number=size(tabulate(transpose(c(:,particle))));
-        calcu=tabulate(transpose(c(:,particle)));
-        if ((c_number(1)~=3) ||  (min(calcu(:,3))<10))
-                    average_fitness(particle,1)=Inf;
-
-        else
-        average_fitness(particle,1) = condEntropy(transpose(c(:,particle)),y); %1.2207  
-        end
+  
+        [Acc,rand_index,match]=AccMeasure(y,transpose(c(:,particle)));
+        
+            
+        average_fitness(particle,1) = Acc; %1.2207  
+        
        %  (average_fitness(particle,1) < swarm_fitness(particle))
-        if (average_fitness(particle,1) < swarm_fitness(particle))  %average_fitness 1,1, the fitness
+        if (average_fitness(particle,1) > swarm_fitness(particle))  %average_fitness 1,1, the fitness
             %of this particle calculated is low than swam fitness  the
             %begin is very big inf
             swarm_fitness(particle) = average_fitness(particle,1);
@@ -152,7 +150,7 @@ tabulate(x)
 tabulate(y)
 condEntropy(x,y) %    0.0471
 % 0.0471
-condEntropy(y,y) %    0.0471
+[Acc,rand_index,match]=AccMeasure(y,x)
 
 
 max_entropy=log2(3) %1.5850
@@ -160,6 +158,21 @@ max_entropy=log2(3) %1.5850
 
 csvwrite('x.txt',x)
 csvwrite('y.txt',y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

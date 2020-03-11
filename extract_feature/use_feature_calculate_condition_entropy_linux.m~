@@ -43,8 +43,8 @@ end
 % INIT PARTICLE SWARM
 centroids = 3;          % == clusters here (aka centroids)
 dimensions = 1024;         % how many dimensions in each centroid
-particles = 50;         % how many particles in the swarm, aka how many solutions
-iterations = 50;        % iterations of the optimization alg.
+particles = 20;         % how many particles in the swarm, aka how many solutions
+iterations = 5;        % iterations of the optimization alg.
 simtime=0.01;           % simulation delay btw each iteration
 dataset_subset = 2;     % for the IRIS dataset, change this value from 0 to 2
 write_video = false;    % enable to grab the output picture and save a video
@@ -136,19 +136,18 @@ for iteration=1:iterations
         c_number=size(tabulate(transpose(c(:,particle))));
       
         
-        [Acc,rand_index,match]=AccMeasure(y,transpose(c(:,particle)));
-        fprintf('%3d. local ACC\n',Acc);   
-
+        [Acc,rand_index,match]=AccMeasure(y,transpose(c(:,particle)))
+        
             
         average_fitness(particle,1) = Acc; %1.2207  
-        
+        Acc
 
         if (average_fitness(particle,1) > swarm_fitness(particle))  %average_fitness 1,1, the fitness       
             swarm_fitness(particle) = average_fitness(particle,1);
             swarm_best(:,:,particle) = swarm_pos(:,:,particle);     %LOCAL BEST FITNESS
         end
     end    
-    [global_fitness, index] = max(swarm_fitness);       %GLOBAL BEST FITNESS
+    [global_fitness, index] = min(swarm_fitness);       %GLOBAL BEST FITNESS
     swarm_overall_pose = swarm_pos(:,:,index);          %GLOBAL BEST POSITION
     
     
@@ -158,14 +157,14 @@ for iteration=1:iterations
     label_predict_hybrid=c(:,index);
     y=(label_all);
     x=transpose(label_predict_hybrid);
-    tabulate(x)
-    tabulate(y)
+        tabulate(x)
+        tabulate(y)
+
     
     
+ %  fprintf('%3d. global fitness is %5.4f.  entropy_hybrid :%5.4f.   entropy_kmeans %5.4f\n',iteration,global_fitness,predict_entropy_hybrid,predict_entropy_kmeans);   
     
-  fprintf('%3d. global fitness is %5.4f.  Acc :%5.4f.   Acc %5.4f\n',iteration,global_fitness,Acc,Acc);   
-    
-  %fprintf('%3d. global fitness is %5.4f\n',iteration,global_fitness);   
+  fprintf('%3d. global fitness is %5.4f\n',iteration,global_fitness);   
 
    
     %uicontrol('Style','text','Position',[40 20 180 20],'String',sprintf('Actual fitness is: %5.4f', global_fitness),'BackgroundColor',get(gcf,'Color'));        

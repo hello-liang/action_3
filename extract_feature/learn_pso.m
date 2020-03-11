@@ -147,6 +147,7 @@ max_entropy=log2(3) %1.5850
 tabulate(x)
 tabulate(y)
 
+[Acc,rand_index,match]=AccMeasure(y,x)
 
 
 csvwrite('x.txt',x)
