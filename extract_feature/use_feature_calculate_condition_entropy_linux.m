@@ -1,7 +1,9 @@
+rng('default')
+
 result_all_predict_hybrid=0
 result_all_predict_kmeans=0
 %try a little one
- model_use=1
+model_use=1
 path_root='/media/liang/ssd2/action_3/extract_feature/';
 %path_root='I:\action_3\extract_feature\';
 
@@ -158,6 +160,7 @@ for iteration=1:iterations
     label_predict_hybrid=c(:,index);
     y=(label_all);
     x=transpose(label_predict_hybrid);
+    
     tabulate(x)
     tabulate(y)
     
@@ -193,6 +196,7 @@ end
 
 csvwrite('x.txt',x)
 csvwrite('y.txt',y)
+csvwrite('swarm_overall_pose.txt',swarm_overall_pose)
 
 
 
@@ -200,6 +204,10 @@ condEntropy(x,y)
 
 tabulate(x)
 tabulate(y)
+swarm_overall_pose
+
+
+[Acc,rand_index,match]=AccMeasure(y,transpose(c(:,particle)))
 
 max_entropy=log2(3) %1.5850
 
