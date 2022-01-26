@@ -1,0 +1,3 @@
+./lrp_demo ./config_sequential.txt ./testfilelist_armflapping.txt ./
+./lrp_demo ./config_sequential.txt ./testfilelist_headbanging.txt ./
+./lrp_demo ./config_sequential.txt ./testfilelist_spinning.txt ./
