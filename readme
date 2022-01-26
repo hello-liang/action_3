@@ -13,7 +13,8 @@ Compared to random classification results, our unsupervised model can remove mor
 2. 
 To compare with other methods, we started to test various supervised algorithms based on the extracted features
 
-The input data is the feature extracted by the unsupervised algorithm（action_3/extract_feature/all_data_save_matrix/data.mat）, and then analyzed using the CLASSIFICATION LEARNER APP in matlab
+The input data is the feature extracted by the unsupervised algorithm（action_3/extract_feature/all_data_save_matrix/data.mat or download https://drive.google.com/file/d/1yL84pyb1GcW9G9Awd1RMe8Hrk_lA0aN7/view?usp=sharing
+）, and then analyzed using the CLASSIFICATION LEARNER APP in matlab
 
 3.
 To explain our model, we used the LRP algorithm and the results are in folder action_3/lrp_toolbox_heatmap/caffe-master-lrp/demonstrator
