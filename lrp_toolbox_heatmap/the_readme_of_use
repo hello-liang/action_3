@@ -1,0 +1,26 @@
+https://blog.gtwang.org/linux/singularity-3-installation-and-usage-tutorial/
+
+the second method ,not from source
+
+setup at caffe-master-lrp
+make clean
+bash install
+
+
+1 go to demonstrator 
+2  open  image analysis 
+copy image for example armflaping to demonstrator/someimage folder  
+write_dir_to_file.py 
+use this get image list 
+
+go back to demonstrator folder to run  
+./lrp_demo ./config_sequential.txt ./testfilelist.txt ./
+
+
+
+then next 
+ combing image 
+
+the way get image list is same
+
+then use over_plot_heatmap.ipynb

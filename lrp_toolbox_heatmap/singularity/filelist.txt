@@ -1,0 +1,2 @@
+/media/liang/ssd/lrp_toolbox_heatmap/caffe-master-lrp/demonstrator/someimages/scooter10.jpg -2
+/media/liang/ssd/lrp_toolbox_heatmap/caffe-master-lrp/demonstrator/someimages/volcano2.jpg -2
