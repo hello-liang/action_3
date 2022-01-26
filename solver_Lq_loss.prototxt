@@ -12,7 +12,7 @@ momentum: 0.9
 weight_decay: 0.005  
 snapshot: 5000
 snapshot_prefix: "Lq_loss"
-solver_mode: GPU
+solver_mode: CPU
 device_id: 0
 random_seed: 1701
 average_loss: 1000

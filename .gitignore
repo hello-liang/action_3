@@ -10,6 +10,8 @@
 /model_4/Lq_loss_iter_5000.solverstate
 /model_5/Lq_loss_iter_5000.caffemodel
 /model_5/Lq_loss_iter_5000.solverstate
+/model_all/Lq_loss_iter_5000.caffemodel
+/model_all/Lq_loss_iter_5000.solverstate
 /RGB
 /video
 /ssbd

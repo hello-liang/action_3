@@ -29,6 +29,8 @@ class TuppleEuclideanLossLayer(caffe.Layer):
         top[0].reshape(1)
 
     def forward(self, bottom, top):
+
+
         c_dist = (bottom[0].data - bottom[1].data)
                 
         v_dist = (bottom[0].data - bottom[2].data)
@@ -37,16 +39,17 @@ class TuppleEuclideanLossLayer(caffe.Layer):
         o_dist = (bottom[0].data - bottom[3].data)
         o_term = LA.norm(o_dist)**2
         
-        disc_term = v_term - o_term + 0.5 
+        disc_term = v_term - o_term + 1.5
         
+        print("there!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")	
 
-        
+
         #print "c_dist {}".format(LA.norm(c_dist)**2)
         #print "v_term {}".format(v_term)
         #print "o_term {}".format(o_term)
         #print "disc_term {}".format(disc_term)
         #raw_input()
-        
+
         if (disc_term >= 0):
             self.diff1[...] = 2*c_dist + 2*(v_dist) - 2*(o_dist)
         else: 
@@ -68,9 +71,13 @@ class TuppleEuclideanLossLayer(caffe.Layer):
         d2 = np.sum(self.diff2**2) / bottom[0].num / 2.
         d3 = np.sum(self.diff3**2) / bottom[0].num / 2.
         d4 = np.sum(self.diff4**2) / bottom[0].num / 2.
-        
-        top[0].data[...] = d1 + d2 + d3 + d4 
+        print("diff2")
+        print(self.diff2)
+        print(np.sum(self.diff2**2))
+        print(bottom[0].num)
 
+        top[0].data[...] = d1 + d2 + d3 + d4 
+        print(d1 + d2 + d3 + d4)	
     def backward(self, top, propagate_down, bottom):
         for i in range(4):
             if not propagate_down[i]:
