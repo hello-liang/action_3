@@ -1,9 +1,20 @@
-#  because of 
-The experiments are con-
-ducted using multiple codebook sizes with n-fold validation
-in a “Leave-One-Group-Out“ scenario. A group of 5 videos
-from every class is left out for testing, while the classifier
-is trained on the remaining videos.
+result eXplain
+SSBD dataset is download from youtube 
 
-we use 5-fold ,because lack of data ,each class random choose 20 video .
-ok .begin
+1. 
+
+We need to test whether an unsupervised model can be used for this task, and we use conditional entropy as an evaluation metric. The input data are the features our unsupervised model gets from RGB images.
+
+the result can get from action_3/extract_feature/data_random_different_kmeans.m
+
+Compared to random classification results, our unsupervised model can remove more uncertainty.
+
+
+2. 
+To compare with other methods, we started to test various supervised algorithms based on the extracted features
+
+The input data is the feature extracted by the unsupervised algorithm（action_3/extract_feature/all_data_save_matrix/data.mat）, and then analyzed using the CLASSIFICATION LEARNER APP in matlab
+
+3.
+To explain our model, we used the LRP algorithm and the results are in folder action_3/lrp_toolbox_heatmap/caffe-master-lrp/demonstrator
+ 
